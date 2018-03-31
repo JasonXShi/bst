@@ -46,24 +46,15 @@ void addNode(Node* head, int number){
 }
 
 void printTree(Node* head, int space){
-// Base case
     if (head == NULL)
     	return;
- 
-    // Increase distance between levels
     space += 10;
- 
-    // Process right child first
     printTree(head->getRight(), space);
- 
-    // Print current node after space
-    // count
     cout << '\n';
     for (int i = 10; i < space; i++)
         cout << " ";
 	cout <<head->getContent();
  
-    // Process left child
     printTree(head->getLeft(), space);
 }
 
