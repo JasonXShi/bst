@@ -4,7 +4,7 @@
  *	Allows the user to create a binary search tree and delete, add, and print out the tree.
  *	This tree does not allow duplicates (there are several trains of thought on this so I just chose this method.
  *
- * /
+ */
 
 
 
@@ -16,7 +16,7 @@
 #include <cmath>
 using namespace std;
 void addNode(Node* head, int number){
-	if(head->getContent()==NULL && head->getContent()!=0){
+	if(head->getContent()==NULL){
 		head->setContent(number);
 		return;
 	}else if(head->getContent()>number){
