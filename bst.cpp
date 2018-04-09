@@ -66,7 +66,8 @@ Node* minValueNode(Node* node){
 	return current;
 }
 Node* deleteNode(Node* head, int number){
-  	if(head->getContent()> number){
+  	
+    if(head->getContent()> number){
     		head->setLeft(deleteNode(head->getLeft(), number));
  	 }else if(number > head->getContent()){
     		head->setRight(deleteNode(head->getRight(), number));
@@ -144,13 +145,23 @@ int main(){
 			cin.get();
 			addNode(head, number);
 		}else if(strcmp(command, "PRINT") == 0){
-			printTree(head, 0);
+			
+            if(head->getContent() == NULL){
+                    
+                    cout << "There is nothing in the tree" << endl;
+                    }else{
+                printTree(head, 0);
+            }
 		}else if(strcmp(command, "DELETE") == 0){
 			cout << "Enter the number you want to delete: " << endl;
 			cin >> number;
 			cin.get();
-			head = deleteNode(head, number);
-		}else if(strcmp(command, "EXIT") == 0){
+			if(head->getLeft() == NULL & head->getRight() == NULL){
+                head->setContent(NULL);
+            }else{
+                 head = deleteNode(head, number);
+            }
+        }else if(strcmp(command, "EXIT") == 0){
 			exit(0);
 		}
 	
